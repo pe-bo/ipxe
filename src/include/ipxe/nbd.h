@@ -26,6 +26,8 @@ FILE_LICENCE ( GPL2_OR_LATER_OR_UBDL );
 #define NBD_REQUEST_MAGIC       0x25609513
 #define NBD_REPLY_MAGIC         0x67446698
 
+#define NBD_ZERO_PAD_LEN        124
+
 /* Handshake flags */
 #define NBD_FLAG_FIXED_NEWSTYLE (1 << 0)
 #define NBD_FLAG_NO_ZEROES      (1 << 1)
@@ -160,7 +162,7 @@ struct nbd_session {
 	struct uri *uri;
 
 	/** Export name */
-	char *export_name;
+	const char *export_name;
 
 	/** Use NBD_OPT_GO option for negotiation */
 	int use_opt_go;
